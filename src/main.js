@@ -6,11 +6,6 @@ import router from './router'
 import Focus from '@/directive/Focus'
 import VueCytoscape from 'vue-cytoscape'
 import 'vue-cytoscape/dist/vue-cytoscape.css'
-import cytoscape from 'cytoscape'
-import qtip from 'cytoscape-qtip'
-
-qtip(cytoscape)
-Vue.prototype.$cy = cytoscape
 
 Vue.use(VueCytoscape)
 Vue.use(Focus)
