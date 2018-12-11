@@ -18,7 +18,7 @@ export default new Router({
     {
       path: '/cy',
       name: 'Cytoscape',
-      component: () => import('@/components/demo/Cytoscape')
+      component: () => import('@/components/demo/CytoscapeVue')
     },
     {
       path: '/debounce',

@@ -4,13 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Focus from '@/directive/Focus'
+import VueCytoscape from 'vue-cytoscape'
+import 'vue-cytoscape/dist/vue-cytoscape.css'
 import cytoscape from 'cytoscape'
 import qtip from 'cytoscape-qtip'
 
 qtip(cytoscape)
-
-Vue.use(Focus)
 Vue.prototype.$cy = cytoscape
+
+Vue.use(VueCytoscape)
+Vue.use(Focus)
 
 Vue.config.productionTip = false
 

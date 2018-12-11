@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
       <img src="./assets/logo.png">
-      <div>
+      <div class="nav">
         <router-link to="/">首页</router-link>
         <router-link to="/flex">Flex布局</router-link>
         <router-link to="/cy">Cytoscape</router-link>
@@ -33,6 +33,9 @@ export default {
   margin-top: 60px;
   .header{
     text-align: center;
+  }
+  .nav{
+    margin-bottom: 20px;
   }
 }
 </style>
