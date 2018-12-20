@@ -96,7 +96,7 @@
             var str = node.data().name.toLowerCase(),
             id = node.data().id,
             keyWorld = this.str.toLowerCase()
-            if(str.indexOf(this.str) < 0){
+            if(str.indexOf(this.str.toLowerCase()) < 0){
               cy.$('#'+id).style({
                 'display': 'none'
               })
