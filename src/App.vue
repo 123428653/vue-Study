@@ -9,6 +9,7 @@
         <router-link to="/debounce">Debounce</router-link>
         <router-link to="/custom">自定义指令、组件</router-link>
         <router-link to="/transition">过渡</router-link>
+        <router-link to="/canvas">画布</router-link>
       </div>
     </div>
     <router-view/>
