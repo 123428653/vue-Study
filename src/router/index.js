@@ -35,10 +35,16 @@ export default new Router({
       name: 'Transition',
       component: () => import('@/components/demo/Transition')
     },
+    ,
     {
       path: '/canvas',
       name: 'Canvas',
       component: () => import('@/components/demo/Canvas')
+    },
+    {
+      path: '/markedHighlight',
+      name: 'MarkedHighlight',
+      component: () => import('@/components/demo/markedHighlight')
     }
   ]
 })
