@@ -14,10 +14,14 @@
   export default {
     name: 'Canvas',
     created() {
-      utils.get('/postsAPI/showPostsByCategory4Operate?categoryID=2&return_format=json&lang=zh_CN&directPage=2')
-      .then(res => {
-        console.log(res);
-      })
+      // utils.get('/postsAPI/showPostsByCategory4Operate?categoryID=2&return_format=json&lang=zh_CN&directPage=2')
+      // .then(res => {
+      //   console.log(res);
+      // })
+      utils.get('/api/hotsale')
+        .then(res => {
+          console.log(res);
+        })
     },
     mounted() {
       let cxt = this.$refs.cv.getContext('2d');

@@ -35,7 +35,6 @@ export default new Router({
       name: 'Transition',
       component: () => import('@/components/demo/Transition')
     },
-    ,
     {
       path: '/canvas',
       name: 'Canvas',

@@ -77,5 +77,9 @@ export default {
   .nav{
     margin-bottom: 20px;
   }
+  .nav a{
+    display: inline-block;
+    margin: 0 10px;
+  }
 }
 </style>

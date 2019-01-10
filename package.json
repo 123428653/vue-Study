@@ -5,13 +5,13 @@
   "author": "“Qin0325” <“183281084@qq.com”>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --open --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
     "cytoscape-qtip": "^2.7.1",
-    "highlight.js": "^8.9.1",
+    "highlight.js": "^9.13.1",
     "marked": "^0.6.0",
     "vue": "^2.5.2",
     "vue-cytoscape": "^0.1.2",
