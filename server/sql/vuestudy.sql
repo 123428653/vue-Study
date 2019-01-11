@@ -32,6 +32,16 @@ CREATE TABLE `address` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+INSERT INTO `address` VALUES ('test@qq.com', '1', '张三', '15555578945', '山东省烟台市芝罘区', '鲁东大学', '271934', '1');
+INSERT INTO `address` VALUES ('test@qq.com', '2', '小明', '15535578564', '山东省济南市历下区', '暨南大学', '271934', '0');
+INSERT INTO `address` VALUES ('test@qq.com', '3', '李四', '15555578945', '山东省烟台市芝罘区', '烟台大学', '271934', '0');
+INSERT INTO `address` VALUES ('test@qq.com', '4', '王五', '15555578945', '山东省青岛市即墨市', '烟台路', '271934', '0');
+
+
+
 
 -- ----------------------------
 -- Table structure for cart
