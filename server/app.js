@@ -37,13 +37,13 @@ app.use(function(req, res, next) {
     next();
   } else {
     var url = req.originalUrl;
+    // 白名单页面
     if (
       url === '/login' ||
       url === '/reg' ||
       url === '/hotsale' ||
       url === '/salegroup' ||
-      url === '/discover' ||
-      url === '/hotsale'
+      url === '/discover'
     ) {
       next();
     } else {

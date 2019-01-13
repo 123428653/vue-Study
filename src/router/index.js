@@ -7,8 +7,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: () => import('@/components/demo/HelloWorld')
+      redirect:'/index'
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: () => import('@/pages/Index')
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: () => import('@/pages/Login')
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: () => import('@/pages/Register')
     },
     {
       path: '/flex',
