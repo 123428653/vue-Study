@@ -11,6 +11,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const CompressionPlugin = require("compression-webpack-plugin") //Gzip压缩
 
 const env = require('../config/prod.env')
 
@@ -148,7 +149,16 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    // 启用Gzip压缩
+    /* new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css)$/i,
+      threshold: 10240,
+      minRatio: 0.8
+    }) */
   ]
 })
 

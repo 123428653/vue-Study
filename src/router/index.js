@@ -6,7 +6,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '*',
       redirect:'/index'
     },
     {
@@ -29,11 +29,11 @@ export default new Router({
       name: 'Flex',
       component: () => import('@/components/demo/Flex')
     },
-    {
+    /* {  //页面插件报错，暂时关闭
       path: '/cy',
       name: 'Cytoscape',
       component: () => import('@/components/demo/CytoscapeVue')
-    },
+    }, */
     {
       path: '/debounce',
       name: 'Debounce',
