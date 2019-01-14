@@ -1,0 +1,21 @@
+
+.customInput[data-v-32ee6599] {
+  text-align: center;
+}
+.box[data-v-32ee6599] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 300px;
+  border: 1px solid #ddd;
+}
+.box span[data-v-32ee6599] {
+  width: 100px;
+}
+

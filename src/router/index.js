@@ -25,6 +25,11 @@ export default new Router({
       component: () => import('@/pages/Register')
     },
     {
+      path: '/setpassword',
+      name: 'SetPassword',
+      component: () => import('@/pages/SetPassword')
+    },
+    {
       path: '/flex',
       name: 'Flex',
       component: () => import('@/components/demo/Flex')

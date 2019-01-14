@@ -39,11 +39,13 @@ app.use(function(req, res, next) {
     var url = req.originalUrl;
     // 白名单页面
     if (
-      url === '/login' ||
-      url === '/reg' ||
-      url === '/hotsale' ||
-      url === '/salegroup' ||
-      url === '/discover'
+      url === '/api/login' ||
+      url === '/api/reg' ||
+      url === '/api/hotsale' ||
+      url === '/api/salegroup' ||
+      url === '/api/discover' ||
+      url === '/api/updatePassword' ||
+      url === '/hello' 
     ) {
       next();
     } else {

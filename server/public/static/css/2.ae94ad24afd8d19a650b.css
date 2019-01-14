@@ -1,0 +1,15 @@
+
+.index {
+  margin-top: 60px;
+}
+.index .header {
+    text-align: center;
+}
+.index .nav {
+    margin-bottom: 20px;
+}
+.index .nav a {
+    display: inline-block;
+    margin: 0 10px;
+}
+

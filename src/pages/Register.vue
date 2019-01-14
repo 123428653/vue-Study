@@ -85,9 +85,9 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           console.log(valid)
-          util.post('/api/login',this.ruleForm)
+          util.post('/api/reg',this.ruleForm)
             .then(res => {
-              console.log(res)
+              console.log(res,3)
             })
         } else {
           console.log('error submit!!')

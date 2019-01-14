@@ -1,0 +1,24 @@
+
+html, body, #app {
+  height: 100%;
+}
+.login {
+  width: 440px;
+  padding: 20px;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.login h2 {
+    text-align: center;
+}
+.login .login-form-button {
+    width: 100%;
+}
+

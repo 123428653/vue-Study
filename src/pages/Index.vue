@@ -51,10 +51,10 @@ export default {
     }
   },
   created(){
-    util.get('/postsAPI/showPostsByCategory4Operate?categoryID=2&return_format=json&lang=zh_CN&directPage=2')
+    /* util.get('/postsAPI/showPostsByCategory4Operate?categoryID=2&return_format=json&lang=zh_CN&directPage=2')
       .then(res =>{
         console.log(res)
-      })
+      }) */
   },
   components: {}
 }

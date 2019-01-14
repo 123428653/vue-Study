@@ -1,0 +1,11 @@
+
+.marked[data-v-6c369db2] {
+  color: #fff;
+  background-color: #000;
+  padding: 20px;
+  overflow: hidden;
+}
+.marked > div[data-v-6c369db2] {
+    overflow-x: scroll;
+}
+
