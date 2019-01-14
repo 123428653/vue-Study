@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -44,8 +45,7 @@ app.use(function(req, res, next) {
       url === '/api/hotsale' ||
       url === '/api/salegroup' ||
       url === '/api/discover' ||
-      url === '/api/updatePassword' ||
-      url === '/hello' 
+      url === '/api/updatePassword'
     ) {
       next();
     } else {
@@ -57,6 +57,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

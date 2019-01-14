@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h2>用户注册</h2>
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class='login-form'>
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class='login-form'>
       <el-form-item prop="userName">
         <el-input
           placeholder='userName'
@@ -30,7 +30,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type='primary' @click="submitForm('ruleForm')" class='login-form-button'>
-          Log in
+          注册
         </el-button>
       </el-form-item>
     </el-form>
@@ -87,7 +87,12 @@ export default {
           console.log(valid)
           util.post('/api/reg',this.ruleForm)
             .then(res => {
-              console.log(res,3)
+              // console.log(res,3)
+              if(res.status === 200){
+                this.$router.push('/login')
+              }else{
+                this.$message.error(reg.msg)
+              }
             })
         } else {
           console.log('error submit!!')

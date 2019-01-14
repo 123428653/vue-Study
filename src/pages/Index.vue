@@ -23,10 +23,10 @@ export default {
           name: 'Flex布局',
           to: '/flex'
         },
-        {
+        /* {
           name: 'Cytoscape',
           to: '/cy'
-        },
+        }, */
         {
           name: 'Debounce',
           to: '/debounce'

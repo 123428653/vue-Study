@@ -71,7 +71,12 @@ export default {
           console.log(valid)
           util.post('/api/updatePassword',this.ruleForm)
             .then(res => {
-              console.log(res)
+              // console.log(res)
+              if(res.status === 200){
+                this.$router.push('/login')
+              } else {
+                this.$message.error(res.msg)
+              }
             })
         } else {
           console.log('error submit!!')
