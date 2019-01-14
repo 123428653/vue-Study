@@ -1,56 +1,97 @@
 <template>
   <div class="login">
     <h2>用户注册</h2>
-    <a-form :form="form" id='components-form-demo-normal-login' @submit="handleSubmit" class='login-form'>
-      <a-form-item>
-        <a-input
+    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class='login-form'>
+      <el-form-item prop="userName">
+        <el-input
           placeholder='userName'
-          v-decorator="[
-            'userName',
-            { rules: [{ required: true, message: 'Please input your username!' }] }
-          ]"
+          v-model="ruleForm.userName"
+          autocomplete="off"
         >
-          <a-icon slot="prefix" type='user' style="color: rgba(0,0,0,.25)" />
-        </a-input>
-      </a-form-item>confirm password
-      <a-form-item>
-        <a-input
-          v-decorator="[
-            'password',
-            { rules: [{ required: true, message: 'Please input your Password!' }] }
-          ]"
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input
           type='password'
           placeholder='Password'
+          v-model="ruleForm.password" 
+          autocomplete="off"
         >
-          <a-icon slot="prefix" type='lock' style="color: rgba(0,0,0,.25)" />
-        </a-input>
-      </a-form-item>
-      <a-form-item>
-        <a-button type='primary' htmlType='submit' class='login-form-button'>
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="checkPass">
+        <el-input
+          type='password'
+          placeholder='Confrm Password'
+          v-model="ruleForm.checkPass" 
+          autocomplete="off"
+        >
+        </el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type='primary' @click="submitForm('ruleForm')" class='login-form-button'>
           Log in
-        </a-button>
-        Or <router-link to="/login">login now!</router-link>
-      </a-form-item>
-    </a-form>
+        </el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
 import util from '@/utils'
 export default {
-  beforeCreate () {
-    this.form = this.$form.createForm(this)
+  data() {
+    const validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.ruleForm.checkPass !== '') {
+          this.$refs.ruleForm.validateField('checkPass')
+        }
+        callback()
+      }
+    };
+    const validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.ruleForm.password) {
+        callback(new Error('两次输入密码不一致!'));
+      } else {
+        callback()
+      }
+    };
+    return {
+      ruleForm: {
+        userName: '',
+        password: '',
+        checkPass: ''
+      },
+      rules: {
+        userName: [
+          { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+          { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+        ],
+        password: [
+          { validator: validatePass, trigger: 'blur' }
+        ],
+        checkPass: [
+          { validator: validatePass2, trigger: 'blur' }
+        ]
+      }
+    }
   },
   methods: {
-    handleSubmit (e) {
-      e.preventDefault()
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          util.post('/api/reg',values)
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          console.log(valid)
+          util.post('/api/login',this.ruleForm)
             .then(res => {
               console.log(res)
             })
-          // console.log('Received values of form: ', values)
+        } else {
+          console.log('error submit!!')
+          return false;
         }
       })
     },

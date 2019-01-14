@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import util from '@/utils'
 export default {
   data() {
     return {
@@ -48,6 +49,12 @@ export default {
         },
       ]
     }
+  },
+  created(){
+    util.get('/postsAPI/showPostsByCategory4Operate?categoryID=2&return_format=json&lang=zh_CN&directPage=2')
+      .then(res =>{
+        console.log(res)
+      })
   },
   components: {}
 }

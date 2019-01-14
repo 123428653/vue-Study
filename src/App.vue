@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  import '@/assets/jquery.qtip.min.css'
 
 export default {
   name: 'App'

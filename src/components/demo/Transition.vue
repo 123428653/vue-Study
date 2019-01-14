@@ -1,9 +1,9 @@
 <template>
   <div class="transition">
-    <a-input placeholder="aa" /> 
-    <a-button @click="shuffle">Shuffle</a-button>
-    <a-button @click="add">Add</a-button>
-    <a-button @click="remove">Remove</a-button>
+    <input placeholder="aa" /> 
+    <button @click="shuffle">Shuffle</button>
+    <button @click="add">Add</button>
+    <button @click="remove">Remove</button>
     <transition-group name="list-complete" tag="p">
       <span
         v-for="item in items"
@@ -13,7 +13,6 @@
   </div>
 </template>
 <script type="text/javascript">
-import {message} from 'ant-design-vue'
 import _ from "lodash"
 export default {
   name: 'Transition',
@@ -39,7 +38,6 @@ export default {
     },
     shuffle: function () {
       this.items = _.shuffle(this.items)
-      message.info('This is a normal message');
     }
   }
 }

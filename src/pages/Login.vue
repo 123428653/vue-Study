@@ -1,61 +1,71 @@
 <template>
   <div class="login">
     <h2>登录</h2>
-    <a-form :form="form" id='components-form-demo-normal-login' @submit="handleSubmit" class='login-form'>
-      <a-form-item>
-        <a-input
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class='login-form'>
+      <el-form-item prop="userName">
+        <el-input
           placeholder='userName'
-          v-decorator="[
-            'userName',
-            { rules: [{ required: true, message: 'Please input your username!' }] }
-          ]"
+          v-model="ruleForm.userName"
+          autocomplete="off"
         >
-          <a-icon slot="prefix" type='user' style="color: rgba(0,0,0,.25)" />
-        </a-input>
-      </a-form-item>
-      <a-form-item>
-        <a-input
-          v-decorator="[
-            'password',
-            { rules: [{ required: true, message: 'Please input your Password!' }] }
-          ]"
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input
           type='password'
           placeholder='Password'
+          v-model="ruleForm.password" 
+          autocomplete="off"
         >
-          <a-icon slot="prefix" type='lock' style="color: rgba(0,0,0,.25)" />
-        </a-input>
-      </a-form-item>
-      <a-form-item>
-        <a-checkbox
-        >
-          Remember me
-        </a-checkbox>
-        <a class='login-form-forgot' href=''>Forgot password</a>
-        <a-button type='primary' htmlType='submit' class='login-form-button'>
+        </el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type='primary' @click="submitForm('ruleForm')" class='login-form-button'>
           Log in
-        </a-button>
-        Or <router-link to="/register">register now!</router-link>
-      </a-form-item>
-    </a-form>
+        </el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
 import util from '@/utils'
 export default {
-  beforeCreate () {
-    this.form = this.$form.createForm(this)
+  data() {
+    return {
+      ruleForm: {
+        userName: '',
+        password: ''
+      },
+      rules: {
+        userName: [
+          { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+          { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur'] }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 16, message: '密码长度在 6 到 16 个字符', trigger: 'blur' }
+        ]
+      }
+    }
   },
   methods: {
-    handleSubmit (e) {
-      e.preventDefault()
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          util.post('/api/login',values)
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          console.log(valid)
+          util.post('/api/login',this.ruleForm)
             .then(res => {
               console.log(res)
+              if(res.msg !== 'success'){
+                this.$message.error(res.msg);
+              }else{
+                this.$message.success('登录成功！');
+              }
             })
-          // console.log('Received values of form: ', values)
+        } else {
+          console.log('error submit!!')
+          return false;
         }
       })
     },
@@ -78,14 +88,9 @@ html,body,#app{
   h2 {
     text-align: center;
   }
+  .login-form-button{
+    width: 100%;
+  }
 }
-#components-form-demo-normal-login .login-form {
-  max-width: 300px;
-}
-#components-form-demo-normal-login .login-form-forgot {
-  float: right;
-}
-#components-form-demo-normal-login .login-form-button {
-  width: 100%;
-}
+
 </style>
