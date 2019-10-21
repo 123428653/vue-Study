@@ -9,8 +9,8 @@ import VueCytoscape from 'vue-cytoscape'
 import 'vue-cytoscape/dist/vue-cytoscape.css'
 // import 'ant-design-vue/dist/antd.css'
 // import Toast from '@/components/toast'
-import 'iv-toast/lib/index.css'
-import Toast from 'iv-toast'
+import 'mv-toast/lib/index.css'
+import Toast from 'mv-toast'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
