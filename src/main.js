@@ -8,6 +8,9 @@ import Focus from '@/directive/Focus'
 import VueCytoscape from 'vue-cytoscape'
 import 'vue-cytoscape/dist/vue-cytoscape.css'
 // import 'ant-design-vue/dist/antd.css'
+// import Toast from '@/components/toast'
+import 'iv-toast/lib/index.css'
+import Toast from 'iv-toast'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -16,13 +19,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 Vue.use(VueCytoscape)
 Vue.use(Focus)
+Vue.use(Toast)
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

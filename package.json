@@ -13,6 +13,7 @@
     "cytoscape-qtip": "^2.7.1",
     "element-ui": "^2.4.11",
     "highlight.js": "^9.13.1",
+    "iv-toast": "^1.0.3",
     "marked": "^0.6.0",
     "vue": "^2.5.2",
     "vue-cytoscape": "^0.1.2",
