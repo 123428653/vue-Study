@@ -39,7 +39,7 @@
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.4.2",
-    "node-notifier": "^5.1.2",
+    "node-notifier": "^8.0.1",
     "node-sass": "^4.9.2",
     "ora": "^3.0.0",
     "portfinder": "^1.0.13",
